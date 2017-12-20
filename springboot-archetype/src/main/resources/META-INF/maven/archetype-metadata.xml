@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<archetype-descriptor name="springboot-archetype">
+
+    <requiredProperties>
+        <requiredProperty key="app-name">
+        </requiredProperty>
+        <requiredProperty key="app-version">
+        	<!-- <validationRegex>^[1-9]*$</validationRegex> -->
+        </requiredProperty>
+        <requiredProperty key="resource-name">
+            <defaultValue>appconfig</defaultValue>
+        </requiredProperty>
+        <requiredProperty key="spring-boot-version">
+        	<defaultValue>1.5.4.RELEASE</defaultValue>
+        </requiredProperty>
+        <requiredProperty key="api-title">
+        	<defaultValue>Api Documentation</defaultValue>
+        </requiredProperty>
+        <requiredProperty key="api-description">
+        	<defaultValue>Api Documentation</defaultValue>
+        </requiredProperty>
+    </requiredProperties>
+
+    <!--Add new fileset for resources-->
+    <!--Set filtered="true" to process files in that directory as templates-->
+    <!--Set packaged="false" to remove package folder structure from resource directory-->
+    <fileSets>
+        <fileSet filtered="true" encoding="UTF-8">
+            <directory>src/main/resources</directory>
+
+            <!--Filters example-->
+            <includes>
+                <include>*.txt</include>
+                <include>*.properties</include>
+                <include>*.xml</include>
+                <include>*.yml</include>
+            </includes>
+        </fileSet>
+        <fileSet filtered="true" packaged="true" encoding="UTF-8">
+            <directory>src/main/java</directory>
+            <includes>
+            	<include>**/*.java</include>
+        	</includes>
+        </fileSet>
+        <fileSet filtered="true" packaged="true">
+            <directory>src/test/java</directory>
+            <includes>
+            	<include>**/*.java</include>
+        	</includes>
+        </fileSet>
+        <fileSet filtered="true" encoding="UTF-8">
+            <directory>src/test/resources</directory>
+
+            <!--Filters example-->
+            <includes>
+                <include>*.feature</include>
+            </includes>
+        </fileSet>
+        <fileSet filtered="true" packaged="false" encoding="UTF-8">
+			<directory/>        
+            <includes>
+            	<include>README.md</include>
+        	</includes>
+        </fileSet>
+        <fileSet filtered="true" encoding="UTF-8">
+            <directory>src/main/docker</directory>
+            <includes>
+                <include>*</include>
+            </includes>
+        </fileSet>
+    </fileSets>
+
+</archetype-descriptor>
